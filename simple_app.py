@@ -4,25 +4,31 @@ import json
 
 app = Flask(__name__)
 
+from option import DEFAULTS
 
 def get_saved_data():
     try:
         data = json.loads(request.cookies.get('character'))
     except TypeError:
         data = {}
-        dd = json.pa
     return data
 
 
 @app.route('/')
 def index():
     data = get_saved_data()
-    return render_template('index.html', saves=data)
+    return render_template('index.html', saves=get_saved_data())
+
+@app.route('/builder')
+def builder():
+    return render_template(
+        'builder.html',
+    saves=get_saved_data(),option=DEFAULTS)
 
 
 @app.route('/save', methods=['POST'])
 def save():
-    response = make_response(redirect((url_for('index'))))
+    response = make_response(redirect((url_for('builder'))))
     #   import pdb; pdb.set_trace()
     data = get_saved_data()
     data.update(dict(request.form.items()))
