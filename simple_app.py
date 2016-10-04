@@ -10,6 +10,7 @@ def get_saved_data():
         data = json.loads(request.cookies.get('character'))
     except TypeError:
         data = {}
+        dd = json.pa
     return data
 
 
