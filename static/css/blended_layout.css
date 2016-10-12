@@ -1,0 +1,38 @@
+*{
+padding : 0;
+margin : 0;
+border : 0;
+}
+body{
+background-image : url(' bi-background-bottom.png ');
+background-attachment : fixed;
+background-size : 100% auto;
+background-color : rgba(211, 0, 2, .4);
+}
+.blended_grid{
+display : block;
+width : 90px;
+overflow : auto;
+margin : 100px auto 0 auto;
+}
+.pageColumnLeft{
+background-color : rgba(0, 255, 0, 0.5);
+float : left;
+clear : none;
+height : 600px;
+width : 300px;
+}
+.pageColumnMid{
+background-color : rgba(255, 0, 0, 0.5);
+float : left;
+clear : none;
+height : 600px;
+width : 300px;
+}
+.pageColumnRight{
+background-color : rgba(0, 0, 100, 0.5);
+float : left;
+clear : none;
+height : 600px;
+width : 300px;
+}

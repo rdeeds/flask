@@ -1,10 +1,12 @@
 from flask import (Flask, request, render_template,
-                   redirect, url_for, make_response)
+                   redirect, url_for, make_response,
+                   flash)
 import json
 
 app = Flask(__name__)
+app.secret_key='y7182e7wyad8tfds67at32^T#dweas6gda1qdwqg1'
 
-from option import DEFAULTS
+from options import DEFAULTS
 
 def get_saved_data():
     try:
@@ -23,13 +25,14 @@ def index():
 def builder():
     return render_template(
         'builder.html',
-    saves=get_saved_data(),option=DEFAULTS)
+    saves=get_saved_data(),options=DEFAULTS)
 
 
 @app.route('/save', methods=['POST'])
 def save():
-    response = make_response(redirect((url_for('builder'))))
-    #   import pdb; pdb.set_trace()
+    flash("fuck you and your Bear")
+    response = make_response(redirect(url_for('builder')))
+    #import pdb; pdb.set_trace()
     data = get_saved_data()
     data.update(dict(request.form.items()))
     response.set_cookie('character', json.dumps(data))
