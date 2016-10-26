@@ -21,6 +21,11 @@ def index():
     data = get_saved_data()
     return render_template('index.html', saves=get_saved_data())
 
+@app.route('/new')
+def index():
+    data = get_saved_data()
+    return render_template('layout1.html', messages=['red','gree','blue','purple'])
+
 @app.route('/builder')
 def builder():
     return render_template(
